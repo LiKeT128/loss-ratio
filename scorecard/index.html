@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>June loss ratio · Hron Mutual</title>
+  <style>
+    body { margin: 0; background: #f4f1ea; color: #1a1a1a; font-family: Aptos, "Segoe UI", sans-serif; }
+    main { width: min(980px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 64px; }
+    .kicker { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0; color: #5c564c; }
+    h1 { font-size: 34px; font-weight: 650; letter-spacing: -0.03em; line-height: 1.15; margin: 10px 0 8px; max-width: 22ch; }
+    .lead { max-width: 62ch; line-height: 1.45; margin-top: 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0; }
+    .card { background: #fff; border: 1px solid #e2dcd0; padding: 16px 16px 12px; }
+    .card.hot { background: #1a1a1a; color: #f4f1ea; border-color: #1a1a1a; }
+    .ratio { font-size: 42px; font-weight: 650; letter-spacing: -0.04em; margin: 0; font-variant-numeric: tabular-nums; }
+    .card h2 { margin: 4px 0 8px; font-size: 16px; font-weight: 650; }
+    .card p { margin: 0 0 6px; font-size: 14px; line-height: 1.35; }
+    table { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+    th, td { text-align: left; padding: 8px 8px; border-bottom: 1px solid #e2dcd0; }
+    th { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: #5c564c; }
+    .num { text-align: right; font-variant-numeric: tabular-nums; }
+    h2.section { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin: 28px 0 8px; }
+    ul { margin: 0; padding-left: 18px; }
+    footer { margin-top: 22px; color: #5c564c; font-size: 13px; max-width: 78ch; line-height: 1.45; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <p class="kicker">Hron Mutual · Bratislava · June 2026 · fictional</p>
+  <h1>Home returns €1.20 of claims per €1 of premium.</h1>
+  <p class="lead">The book looks fine at 70.00%. That average hides Home. Home is the least frequent line, 2.00 claims per 100 policies, and the only one above 100%. Motor is more than twice as frequent and still at 60.00%.</p>
+  <section class="grid">
+    <article class='card'><p class='ratio'>60.00%</p><h2>Motor</h2><p>€0.60 of claims per €1 of premium</p><p>5.00 claims per 100 policies · severity €1,500</p></article><article class='card hot'><p class='ratio'>120.00%</p><h2>Home</h2><p>€1.20 of claims per €1 of premium</p><p>2.00 claims per 100 policies · severity €12,000</p></article><article class='card'><p class='ratio'>20.00%</p><h2>Travel</h2><p>€0.20 of claims per €1 of premium</p><p>1.00 claims per 100 policies · severity €400</p></article>
+  </section>
+  <h2 class="section">Without claims at or above €10,000</h2>
+  <p class="lead">Home falls from 120.00% to 20.00%. The average severity of €12,000 describes neither the 8 claims of €2,500 nor the 2 claims of €50,000.</p>
+  <ul>
+    <li>Home claim 1001: €50,000</li><li>Home claim 1002: €50,000</li>
+  </ul>
+  <h2 class="section">Scorecard</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th><th>Policies</th><th>Earned premium</th><th>Claims</th>
+        <th>Per 100</th><th>Severity</th><th>Paid</th><th>Loss ratio</th><th>Ex-large</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Motor</td><td class='num'>2,000</td><td class='num'>€250,000</td><td class='num'>100</td><td class='num'>5.00</td><td class='num'>€1,500</td><td class='num'>€150,000</td><td class='num'>60.00%</td><td class='num'>60.00%</td></tr><tr><td>Home</td><td class='num'>500</td><td class='num'>€100,000</td><td class='num'>10</td><td class='num'>2.00</td><td class='num'>€12,000</td><td class='num'>€120,000</td><td class='num'>120.00%</td><td class='num'>20.00%</td></tr><tr><td>Travel</td><td class='num'>2,500</td><td class='num'>€50,000</td><td class='num'>25</td><td class='num'>1.00</td><td class='num'>€400</td><td class='num'>€10,000</td><td class='num'>20.00%</td><td class='num'>20.00%</td></tr>
+    </tbody>
+  </table>
+  <footer>
+    Loss ratio is claims paid divided by earned premium. Frequency is claims divided by policies. Severity is paid divided by claim count. The portfolio ratio is the premium-weighted average of the three product ratios, and that check is zero in sql/03_portfolio.sql. Tables are dim_product, fact_exposure, and fact_claim. The €10,000 cut lives in the assumption table.
+  </footer>
+</main>
+</body>
+</html>
